@@ -1,17 +1,21 @@
-
-Ext.define('statusPage.view.status.componentStatus',{
-    extend: 'Ext.panel.Panel',
-
+/**
+ * This class is the main view for the application. It is specified in app.js as the
+ * "mainView" property. That setting automatically applies the "viewport"
+ * plugin causing this view to become the body element (i.e., the viewport).
+ *
+ * TODO - Replace this content of this view to suite the needs of your application.
+ */
+Ext.define('statusPage.view.status.componentStatus', {
+    extend: 'Ext.grid.Panel',
     requires: [
+        'Ext.plugin.Viewport',
+        'Ext.window.MessageBox',
+
         'statusPage.view.status.componentStatusController',
-        'statusPage.view.status.componentStatusModel',
-        'statusPage.store.componentStore'
+        'statusPage.view.status.componentStatusModel'
+        //'statusPage.store.componentStore'
     ],
 
-    controller: 'status-componentstatus',
-    viewModel: {
-        type: 'status-componentstatus'
-    },
     xtype: 'array-grid',
     store: 'componentStore',
     stateful: true,
@@ -47,30 +51,12 @@ Ext.define('statusPage.view.status.componentStatus',{
                 text     : 'Change',
                 width    : 80,
                 sortable : true,
-                renderer : function(val) {
-                    var out = Ext.util.Format.number(val, '0.00');
-                    if (val > 0) {
-                        return '<span style="color:' + "#73b51e" + ';">' + out + '</span>';
-                    } else if (val < 0) {
-                        return '<span style="color:' + "#cf4c35" + ';">' + out + '</span>';
-                    }
-                    return out;
-                },
                 dataIndex: 'change'
             },
             {
                 text     : '% Change',
                 width    : 100,
                 sortable : true,
-                renderer : function(val) {
-                    var out = Ext.util.Format.number(val, '0.00%');
-                    if (val > 0) {
-                        return '<span style="color:' + "#73b51e" + ';">' + out + '</span>';
-                    } else if (val < 0) {
-                        return '<span style="color:' + "#cf4c35" + ';">' + out + '</span>';
-                    }
-                    return out;
-                },
                 dataIndex: 'pctChange'
             },
             {
@@ -119,6 +105,4 @@ Ext.define('statusPage.view.status.componentStatus',{
 
         me.callParent();
     }
-
-   // html: 'Hello, World!!'
 });
