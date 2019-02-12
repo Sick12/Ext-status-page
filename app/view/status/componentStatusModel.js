@@ -1,7 +1,7 @@
 /**
  * This class is the view model for the Main view of the application.
  */
-Ext.define('statusPage.view.status.componentStatusModel', {
+Ext.define('statusPage.view.status.ComponentStatusModel', {
     extend: 'Ext.app.ViewModel',
 
     alias: 'viewmodel.status-componentstatus',

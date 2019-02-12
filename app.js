@@ -14,7 +14,7 @@ Ext.application({
     ],
 
     // The name of the initial view to create.
-    //mainView: 'statusPage.view.main.Main'
-    stores: ['componentStore'],
-    mainView: 'statusPage.view.status.componentStatus'
+    // mainView: 'statusPage.view.main.Main'
+    //stores: ['ComponentStore'],
+    //mainView: 'statusPage.view.status.ComponentStatus'
 });

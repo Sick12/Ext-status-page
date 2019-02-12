@@ -5,16 +5,16 @@
  */
 Ext.define('statusPage.Application', {
     extend: 'Ext.app.Application',
-
     name: 'statusPage',
-
-    quickTips: false,
-    platformConfig: {
-        desktop: {
-            quickTips: true
-        }
+    controllers:[
+    ],
+    stores:['ComponentStore'],
+    launch: function(){
+        console.log('launching my application');
+        Ext.create({
+            xtype:'componentStatus1'
+        })
     },
-
     onAppUpdate: function () {
         Ext.Msg.confirm('Application.js',
             function (choice) {
